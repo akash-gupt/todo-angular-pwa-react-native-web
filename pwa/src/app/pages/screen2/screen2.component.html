@@ -1,0 +1,14 @@
+<ng-container *ngIf="movies$ | async as movies; else loading">
+  <mat-grid-list cols="2">
+    <mat-grid-tile *ngFor="let movie of movies">
+      <mat-card class="movie-card">
+        <mat-card-header>
+          <mat-card-title>{{ movie.title }}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="movie.posterUrl" />
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-container>
+
+<ng-template #loading>Loading...</ng-template>
